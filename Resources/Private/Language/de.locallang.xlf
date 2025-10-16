@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext"
+		  original="EXT:ot_markdown/Resources/Private/Language/locallang.xlf" date="2025-10-16T10:58:20Z"
+		  product-name="ot-markdown">
+		<body>
+			<trans-unit id="noMarkdownFileSelected" resname="noMarkdownFileSelected" approved="yes">
+				<source><![CDATA[<b>Warning:</b> No markdown file selected.]]></source>
+				<target><![CDATA[<b>Warnung:</b> Es wurde keine Markdown-Datei ausgewählt.]]></target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

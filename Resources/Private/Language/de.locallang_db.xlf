@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext"
+		  original="EXT:ot_markdown/Resources/Private/Language/locallang_db.xlf" date="2025-10-15T12:30:24Z"
+		  product-name="ot-markdown">
+		<body>
+			<trans-unit id="tt_content.CType.ot_markdown" resname="tt_content.CType.ot_markdown" approved="yes">
+				<source>Markdown</source>
+				<target>Markdown</target>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_otmarkdown_mode" resname="tt_content.tx_otmarkdown_mode" approved="yes">
+				<source>Markdown Source</source>
+				<target>Markdown-Quelle</target>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_otmarkdown_mode.inline" resname="tt_content.tx_otmarkdown_mode.inline" approved="yes">
+				<source>Inline Text</source>
+				<target>Inline-Text</target>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_otmarkdown_mode.file" resname="tt_content.tx_otmarkdown_mode.file" approved="yes">
+				<source>File</source>
+				<target>Datei</target>
+			</trans-unit>
+			<trans-unit id="tt_content.bodytext" resname="tt_content.bodytext" approved="yes">
+				<source>Markdown Content</source>
+				<target>Markdown-Inhalt</target>
+			</trans-unit>
+			<trans-unit id="tt_content.assets" resname="tt_content.assets" approved="yes">
+				<source>Markdown File</source>
+				<target>Markdown-Datei</target>
+			</trans-unit>
+			<trans-unit id="tt_content.assets.addFile" resname="tt_content.assets.addFile" approved="yes">
+				<source>Add Markdown File</source>
+				<target>Markdown-Datei hinzufügen</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

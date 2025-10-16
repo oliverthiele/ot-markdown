@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file source-language="en" target-language="de" datatype="plaintext"
+		  original="EXT:ot_markdown/Configuration/Sets/OtMarkdown/labels.xlf"
+		  date="2025-10-16T11:06:00Z" product-name="ot-markdown">
+		<header/>
+		<body>
+			<trans-unit id="label" resname="label" approved="yes">
+				<source>Content Element: Markdown</source>
+				<target>Inhaltselement: Markdown</target>
+			</trans-unit>
+			<trans-unit id="categories.otMarkdown" resname="categories.otMarkdown">
+				<source>CE Markdown</source>
+				<target>CE Markdown</target>
+			</trans-unit>
+			<trans-unit id="settings.otMarkdown.useCdnForPrism" resname="settings.otMarkdown.useCdnForPrism">
+				<source>Use CDN for the Prism syntax highlighter?</source>
+				<target>Benutze CDN für den Syntax-Highlighter Prism?</target>
+			</trans-unit>
+			<trans-unit id="settings.otMarkdown.useCdnForPrism.description"
+						resname="settings.otMarkdown.useCdnForPrism.description">
+				<source>If a CDN is used, there may be problems with the GDPR. It is better to deliver locally.</source>
+				<target>Bei Verwendung eines CDN kann es zu Problemen mit der DSGVO kommen. Es ist besser, lokal auszuliefern.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext"
+		  original="EXT:ot_markdown/Resources/Private/Language/locallang_db.xlf" date="2025-10-15T12:30:24Z"
+		  product-name="ot-markdown">
+		<body>
+			<trans-unit id="tt_content.CType.ot_markdown" resname="tt_content.CType.ot_markdown">
+				<source>Markdown</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_otmarkdown_mode" resname="tt_content.tx_otmarkdown_mode">
+				<source>Markdown Source</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_otmarkdown_mode.inline" resname="tt_content.tx_otmarkdown_mode.inline">
+				<source>Inline Text</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_otmarkdown_mode.file" resname="tt_content.tx_otmarkdown_mode.file">
+				<source>File</source>
+			</trans-unit>
+			<trans-unit id="tt_content.bodytext" resname="tt_content.bodytext">
+				<source>Markdown Content</source>
+			</trans-unit>
+			<trans-unit id="tt_content.assets" resname="tt_content.assets">
+				<source>Markdown File</source>
+			</trans-unit>
+			<trans-unit id="tt_content.assets.addFile" resname="tt_content.assets.addFile">
+				<source>Add Markdown File</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

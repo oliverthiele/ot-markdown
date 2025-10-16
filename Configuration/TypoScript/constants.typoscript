@@ -1,0 +1,2 @@
+# cat=OtMarkdown/enable/a; type=boolean; label=Use CDN for Prism syntax highlighter
+otMarkdown.useCdnForPrism = 1
