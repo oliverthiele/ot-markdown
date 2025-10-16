@@ -5,10 +5,13 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 defined('TYPO3') or die();
 
 call_user_func(static function () {
+    $key = 'ot_markdown';
+
+    // Neues Feld für Inline/File-Auswahl hinzufügen
     $temporaryColumns = [
         'tx_otmarkdown_mode' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ot_markdown/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otmarkdown_mode',
+            'label' => 'LLL:EXT:' . $key . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otmarkdown_mode',
             'config' => [
                 'type' => 'radio',
                 'renderType' => 'selectSingle',
@@ -30,18 +33,22 @@ call_user_func(static function () {
 
     ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumns);
 
-    // CType registrieren
-    ExtensionManagementUtility::addPlugin(
-        [
-            'LLL:EXT:ot_markdown/Resources/Private/Language/locallang_db.xlf:tt_content.CType.ot_markdown',
-            'ot_markdown',
-            'content-text', // todo IconIdentifier
-        ],
+    // Register CType ot_markdown
+    ExtensionManagementUtility::addTcaSelectItem(
+        'tt_content',
         'CType',
-        'ot_markdown'
+        [
+            'label' => 'LLL:EXT:' . $key . '/Resources/Private/Language/locallang_db.xlf:tt_content.CType.ot_markdown',
+            'description' => 'LLL:EXT:' . $key . '/Resources/Private/Language/locallang_db.xlf:tt_content.CType.ot_markdown.description',
+            'value' => $key,
+            'icon' => 'ot-markdown',
+            'group' => 'extras',
+        ],
+        'textmedia',
+        'after'
     );
 
-    $GLOBALS['TCA']['tt_content']['types']['ot_markdown'] = [
+    $GLOBALS['TCA']['tt_content']['types'][$key] = [
         'showitem' => '
             --palette--;;general,
             --palette--;;headers,
