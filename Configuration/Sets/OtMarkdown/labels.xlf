@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file source-language="en" datatype="plaintext"
+		  original="EXT:ot_markdown/Configuration/Sets/OtMarkdown/labels.xlf"
+		  date="2025-10-16T11:06:00Z" product-name="ot-markdown">
+		<header/>
+		<body>
+			<trans-unit id="label" resname="label">
+				<source>Content Element: Markdown</source>
+			</trans-unit>
+			<trans-unit id="categories.OtMarkdown" resname="categories.OtMarkdown">
+				<source>CE Markdown</source>
+			</trans-unit>
+			<trans-unit id="settings.OtMarkdown.useCdnForPrism" resname="settings.OtMarkdown.useCdnForPrism">
+				<source>Use CDN for the Prism syntax highlighter?</source>
+			</trans-unit>
+			<trans-unit id="settings.OtMarkdown.useCdnForPrism.description" resname="settings.OtMarkdown.useCdnForPrism.description">
+				<source>If a CDN is used, there may be problems with the GDPR. It is better to deliver locally.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

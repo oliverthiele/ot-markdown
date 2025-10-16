@@ -1,0 +1,31 @@
+tt_content.ot_markdown =< lib.contentElement
+tt_content.ot_markdown {
+  templateName = Markdown
+
+  layoutRootPaths {
+    20 = EXT:ot_markdown/Resources/Private/Templates/Bootstrap5/Layouts/
+  }
+
+  partialRootPaths {
+    20 = EXT:ot_markdown/Resources/Private/Templates/Bootstrap5/Partials/
+  }
+
+  templateRootPaths {
+    20 = EXT:ot_markdown/Resources/Private/Templates/Bootstrap5/Templates/
+  }
+
+  settings {
+    otMarkdown {
+      useCdnForPrism = {$otMarkdown.useCdnForPrism}
+    }
+  }
+
+  dataProcessing {
+    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+    10 {
+      if.isTrue.field = assets
+      references.fieldName = assets
+      as = markdownFiles
+    }
+  }
+}

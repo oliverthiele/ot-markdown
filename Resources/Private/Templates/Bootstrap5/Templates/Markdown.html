@@ -1,0 +1,60 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ot="http://typo3.org/ns/OliverThiele/OtMarkdown/ViewHelpers"
+      lang="en" data-namespace-typo3-fluid="true">
+
+<f:layout name="Default"/>
+
+<f:section name="Main">
+    <f:format.raw><f:replace search="<table>" replace='<table class="table table-bordered">'>
+        <f:switch expression="{data.tx_otmarkdown_mode}">
+            <f:case value="inline">
+                <section class="markdown-inline">
+                    <ot:markdown text="{data.bodytext}"/>
+                </section>
+            </f:case>
+
+            <f:case value="file">
+                <f:if condition="{markdownFiles}">
+                    <f:for each="{markdownFiles}" as="file">
+                        <section class="markdown-file" aria-label="Markdown content from file {file.name}">
+                            <ot:markdown file="{file}" as="output">
+                                <figure class="figure w-100">
+                                    <f:format.raw>{output.html}</f:format.raw>
+                                    <f:if condition="{output.frontmatter.title}">
+                                        <figcaption class="figure-caption">
+                                            {output.frontmatter.title}
+                                            <f:if condition="{output.frontmatter.author}">
+                                                – {output.frontmatter.author}
+                                            </f:if>
+                                        </figcaption>
+                                    </f:if>
+                                </figure>
+                            </ot:markdown>
+                        </section>
+                    </f:for>
+                </f:if>
+                <f:if condition="!{markdownFiles}">
+                    <div class="alert alert-warning" role="alert">
+                        <f:format.raw>
+                            <f:translate key="noMarkdownFileSelected" extensionName="OtMarkdown"/>
+                        </f:format.raw>
+                    </div>
+                </f:if>
+            </f:case>
+        </f:switch>
+    </f:replace></f:format.raw>
+
+    <f:if condition="{settings.otMarkdown.useCdnForPrism}">
+        <f:if condition="{data.bodytext} || {markdownFiles}">
+            <f:asset.css identifier="ot_markdown_prism_css"
+                         href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-solarizedlight.css"/>
+            <f:asset.script identifier="ot_markdown_prism_js"
+                            src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"/>
+            <f:asset.script identifier="ot_markdown_prism_markup_templating"
+                            src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-markup-templating.min.js"/>
+            <f:asset.script identifier="ot_markdown_prism_php"
+                            src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-php.min.js"/>
+        </f:if>
+    </f:if>
+</f:section>
+</html>

@@ -1,0 +1,49 @@
+{
+	"name": "oliverthiele/ot-markdown",
+	"type": "typo3-cms-extension",
+	"description": "Content Element and ViewHelper for Markdown with optional syntax highlighting.",
+	"license": [
+		"GPL-2.0-or-later"
+	],
+	"authors": [
+		{
+			"name": "Oliver Thiele",
+			"email": "mail@oliver-thiele.de",
+			"homepage": "https://www.oliver-thiele.de",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": "^8.2",
+		"typo3/cms-core": "^13.4",
+		"league/commonmark": "^2.7.1"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^10.5",
+		"phpstan/phpstan": "^1.11",
+		"roave/security-advisories": "dev-latest"
+	},
+	"autoload": {
+		"psr-4": {
+			"OliverThiele\\OtMarkdown\\": "Classes/"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "ot_markdown"
+		}
+	},
+	"keywords": [
+		"typo3",
+		"markdown",
+		"commonmark",
+		"content element",
+		"documentation",
+		"viewhelper",
+		"code highlighting"
+	],
+	"support": {
+		"issues": "https://github.com/oliverthiele/ot-markdown/issues",
+		"source": "https://github.com/oliverthiele/ot-markdown"
+	}
+}
