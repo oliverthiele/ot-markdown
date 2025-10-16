@@ -7,6 +7,9 @@
 			<trans-unit id="tt_content.CType.ot_markdown" resname="tt_content.CType.ot_markdown">
 				<source>Markdown</source>
 			</trans-unit>
+			<trans-unit id="tt_content.CType.ot_markdown.description" resname="tt_content.CType.ot_markdown.description">
+				<source>Content element for displaying Markdown from the editor field or from a file.</source>
+			</trans-unit>
 			<trans-unit id="tt_content.tx_otmarkdown_mode" resname="tt_content.tx_otmarkdown_mode">
 				<source>Markdown Source</source>
 			</trans-unit>

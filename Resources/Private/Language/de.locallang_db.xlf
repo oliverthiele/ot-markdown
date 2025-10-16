@@ -8,6 +8,10 @@
 				<source>Markdown</source>
 				<target>Markdown</target>
 			</trans-unit>
+			<trans-unit id="tt_content.CType.ot_markdown.description" resname="tt_content.CType.ot_markdown.description" approved="yes">
+				<source>Content element for displaying Markdown from the editor field or from a file.</source>
+				<target>Inhaltselement zur Darstellung von Markdown aus dem Editor-Feld oder aus einer Datei.</target>
+			</trans-unit>
 			<trans-unit id="tt_content.tx_otmarkdown_mode" resname="tt_content.tx_otmarkdown_mode" approved="yes">
 				<source>Markdown Source</source>
 				<target>Markdown-Quelle</target>
