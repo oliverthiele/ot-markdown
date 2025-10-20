@@ -140,6 +140,17 @@ final class MarkdownService
             $content = preg_replace('/^---\s*\n.*?\n---\s*\n/s', '', $content);
         }
 
-        return ltrim($content);
+        if (isset($this->frontmatter['date'])) {
+            $timestamp = strtotime((string)$this->frontmatter['date']);
+            if ($timestamp === false || $timestamp <= 0) {
+                // Invalid or unparseable date → remove it
+                unset($this->frontmatter['date']);
+            } else {
+                // Normalize to ISO 8601 (YYYY-MM-DD)
+                $this->frontmatter['date'] = date('Y-m-d', $timestamp);
+            }
+        }
+
+        return ltrim((string)$content);
     }
 }

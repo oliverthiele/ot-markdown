@@ -28,6 +28,12 @@
                                             <f:if condition="{output.frontmatter.author}">
                                                 – {output.frontmatter.author}
                                             </f:if>
+                                            <f:if condition="{output.frontmatter.date} != ''">
+                                                <br />
+                                                <time datetime="{f:format.date(format: 'Y-m-d', date: output.frontmatter.date)}">
+                                                    <f:format.date format="d.m.Y" date="{output.frontmatter.date}" />
+                                                </time>
+                                            </f:if>
                                         </figcaption>
                                     </f:if>
                                 </figure>
