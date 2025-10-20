@@ -89,6 +89,7 @@ final class MarkdownService
      */
     private function getFileContent(FileInterface|string $file): string
     {
+        // Already handled: $file is FileInterface
         if ($file instanceof FileInterface) {
             try {
                 return (string)$file->getContents();
@@ -97,25 +98,19 @@ final class MarkdownService
             }
         }
 
-        // If only a path or a UID was passed
-        if (is_string($file)) {
-            try {
-                $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
-                if (is_numeric($file)) {
-                    $falFile = $resourceFactory->getFileObject((int)$file);
-                } else {
-                    $falFile = $resourceFactory->retrieveFileOrFolderObject($file);
-                }
+        // So now $file is guaranteed to be string
+        $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
+        try {
+            $falFile = is_numeric($file)
+                ? $resourceFactory->getFileObject((int)$file)
+                : $resourceFactory->retrieveFileOrFolderObject($file);
 
-                if ($falFile instanceof FileInterface) {
-                    return (string)$falFile->getContents();
-                }
-            } catch (\Throwable $e) {
-                return sprintf('<!-- Unable to retrieve file: %s (%s) -->', $file, $e->getMessage());
-            }
+            return $falFile instanceof FileInterface
+                ? (string)$falFile->getContents()
+                : '';
+        } catch (\Throwable $e) {
+            return sprintf('<!-- Unable to retrieve file: %s (%s) -->', $file, $e->getMessage());
         }
-
-        return '';
     }
 
     /**
