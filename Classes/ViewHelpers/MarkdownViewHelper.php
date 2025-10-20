@@ -15,8 +15,6 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
  *   <ot:markdown text="{data.bodytext}" />
  *   <ot:markdown file="{file}" as="output" />
  *   <ot:markdown>{variableWithMarkdown}</ot:markdown>
- *
- * @extends AbstractViewHelper<array{html: string, frontmatter: array<string, mixed>}>
  */
 final class MarkdownViewHelper extends AbstractViewHelper
 {
@@ -35,10 +33,6 @@ final class MarkdownViewHelper extends AbstractViewHelper
 
     public function render(): string
     {
-        if ($this->markdownService === null) {
-            return '<!-- MarkdownService not available -->';
-        }
-
         $text = trim((string)$this->arguments['text']);
         $file = $this->arguments['file'] ?? null;
         $as = (string)$this->arguments['as'];

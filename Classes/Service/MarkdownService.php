@@ -47,6 +47,9 @@ final class MarkdownService
      */
     public function render(?string $markdown = null, FileInterface|string|null $file = null): string
     {
+        // 🧹 Reset frontmatter before each render
+        $this->frontmatter = [];
+
         $source = '';
 
         if (!empty($markdown)) {
@@ -86,6 +89,7 @@ final class MarkdownService
      */
     private function getFileContent(FileInterface|string $file): string
     {
+        // Already handled: $file is FileInterface
         if ($file instanceof FileInterface) {
             try {
                 return (string)$file->getContents();
@@ -94,25 +98,19 @@ final class MarkdownService
             }
         }
 
-        // If only a path or a UID was passed
-        if (is_string($file)) {
-            try {
-                $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
-                if (is_numeric($file)) {
-                    $falFile = $resourceFactory->getFileObject((int)$file);
-                } else {
-                    $falFile = $resourceFactory->retrieveFileOrFolderObject($file);
-                }
+        // So now $file is guaranteed to be string
+        $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
+        try {
+            $falFile = is_numeric($file)
+                ? $resourceFactory->getFileObject((int)$file)
+                : $resourceFactory->retrieveFileOrFolderObject($file);
 
-                if ($falFile instanceof FileInterface) {
-                    return (string)$falFile->getContents();
-                }
-            } catch (\Throwable $e) {
-                return sprintf('<!-- Unable to retrieve file: %s (%s) -->', $file, $e->getMessage());
-            }
+            return $falFile instanceof FileInterface
+                ? (string)$falFile->getContents()
+                : '';
+        } catch (\Throwable $e) {
+            return sprintf('<!-- Unable to retrieve file: %s (%s) -->', $file, $e->getMessage());
         }
-
-        return '';
     }
 
     /**
@@ -125,6 +123,8 @@ final class MarkdownService
      */
     private function stripFrontmatter(string $content): string
     {
+        $this->frontmatter = []; // reset default
+
         if (preg_match('/^---\s*\n(.*?)\n---\s*\n/s', $content, $matches)) {
             $yamlBlock = $matches[1];
             try {
@@ -135,6 +135,17 @@ final class MarkdownService
             $content = preg_replace('/^---\s*\n.*?\n---\s*\n/s', '', $content);
         }
 
-        return ltrim($content);
+        if (isset($this->frontmatter['date'])) {
+            $timestamp = strtotime((string)$this->frontmatter['date']);
+            if ($timestamp === false || $timestamp <= 0) {
+                // Invalid or unparseable date → remove it
+                unset($this->frontmatter['date']);
+            } else {
+                // Normalize to ISO 8601 (YYYY-MM-DD)
+                $this->frontmatter['date'] = date('Y-m-d', $timestamp);
+            }
+        }
+
+        return ltrim((string)$content);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['ot_markdown'] = [
     'title' => 'CE Markdown',
     'description' => 'Content Element and ViewHelper for Markdown with optional syntax highlighting.',
     'category' => 'frontend',
