@@ -47,6 +47,9 @@ final class MarkdownService
      */
     public function render(?string $markdown = null, FileInterface|string|null $file = null): string
     {
+        // 🧹 Reset frontmatter before each render
+        $this->frontmatter = [];
+
         $source = '';
 
         if (!empty($markdown)) {
@@ -125,6 +128,8 @@ final class MarkdownService
      */
     private function stripFrontmatter(string $content): string
     {
+        $this->frontmatter = []; // reset default
+
         if (preg_match('/^---\s*\n(.*?)\n---\s*\n/s', $content, $matches)) {
             $yamlBlock = $matches[1];
             try {
