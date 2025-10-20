@@ -5,7 +5,9 @@
 <f:layout name="Default"/>
 
 <f:section name="Main">
-    <f:format.raw><f:replace search="<table>" replace='<table class="table table-bordered">'>
+    <f:format.raw><f:replace
+        search="{0: '<table>', 1: '<blockquote>'}"
+        replace="{0: '<table class=\"table\">', 1: '<blockquote class=\"blockquote\">'}">
         <f:switch expression="{data.tx_otmarkdown_mode}">
             <f:case value="inline">
                 <section class="markdown-inline">
