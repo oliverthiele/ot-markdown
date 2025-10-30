@@ -17,8 +17,8 @@
 				<source>Use CDN for the Prism syntax highlighter?</source>
 				<target>Benutze CDN für den Syntax-Highlighter Prism?</target>
 			</trans-unit>
-			<trans-unit id="settings.otMarkdown.useCdnForPrism.description"
-						resname="settings.otMarkdown.useCdnForPrism.description">
+			<trans-unit id="settings.otMarkdown.description.useCdnForPrism"
+						resname="settings.otMarkdown.description.useCdnForPrism">
 				<source>If a CDN is used, there may be problems with the GDPR. It is better to deliver locally.</source>
 				<target>Bei Verwendung eines CDN kann es zu Problemen mit der DSGVO kommen. Es ist besser, lokal auszuliefern.</target>
 			</trans-unit>
