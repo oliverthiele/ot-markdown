@@ -4,6 +4,5 @@ categories:
 settings:
   otMarkdown.useCdnForPrism:
     category: otMarkdown
-    description: 'LLL:EXT:ot_markdown/Configuration/Sets/OtMarkdown/labels.xlf:settings.otMarkdown.useCdnForPrism.description'
     type: bool
     default: true
