@@ -8,7 +8,7 @@ $EM_CONF['ot_markdown'] = [
     'author_email' => 'mail@oliver-thiele.de',
     'state' => 'stable',
     'author_company' => 'Web Development Oliver Thiele',
-    'version' => '1.0.4',
+    'version' => '1.0.5',
     'constraints' =>
         [
             'depends' =>
