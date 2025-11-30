@@ -8,7 +8,7 @@
 			<trans-unit id="label" resname="label">
 				<source>Content Element: Markdown</source>
 			</trans-unit>
-			<trans-unit id="categories.OtMarkdown" resname="categories.OtMarkdown">
+			<trans-unit id="categories.otMarkdown" resname="categories.otMarkdown">
 				<source>CE Markdown</source>
 			</trans-unit>
 			<trans-unit id="settings.otMarkdown.useCdnForPrism" resname="settings.otMarkdown.useCdnForPrism">
