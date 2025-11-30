@@ -11,10 +11,10 @@
 			<trans-unit id="categories.OtMarkdown" resname="categories.OtMarkdown">
 				<source>CE Markdown</source>
 			</trans-unit>
-			<trans-unit id="settings.OtMarkdown.useCdnForPrism" resname="settings.OtMarkdown.useCdnForPrism">
+			<trans-unit id="settings.otMarkdown.useCdnForPrism" resname="settings.otMarkdown.useCdnForPrism">
 				<source>Use CDN for the Prism syntax highlighter?</source>
 			</trans-unit>
-			<trans-unit id="settings.OtMarkdown.description.useCdnForPrism" resname="settings.OtMarkdown.description.useCdnForPrism">
+			<trans-unit id="settings.otMarkdown.description.useCdnForPrism" resname="settings.otMarkdown.description.useCdnForPrism">
 				<source>If a CDN is used, there may be problems with the GDPR. It is better to deliver locally.</source>
 			</trans-unit>
 		</body>
