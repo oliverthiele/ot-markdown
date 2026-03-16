@@ -1,159 +1,103 @@
+# ot_markdown — Markdown Content Element for TYPO3
 
-# ot_markdown — TYPO3 Extension for Markdown Content Elements
+Adds a Markdown content element and a Fluid ViewHelper to TYPO3 v13+. Supports inline Markdown and `.md` files from Fileadmin, rendered via [league/commonmark](https://commonmark.thephpleague.com/) with optional Prism.js syntax highlighting.
 
-## 🧩 Overview
+[![TYPO3](https://img.shields.io/badge/TYPO3-13.4-orange.svg)](https://typo3.org/)
+[![Packagist Version](https://img.shields.io/packagist/v/oliverthiele/ot-markdown.svg)](https://packagist.org/packages/oliverthiele/ot-markdown)
+[![PHP](https://img.shields.io/packagist/dependency-v/oliverthiele/ot-markdown/php.svg)](https://php.net/)
+[![License](https://img.shields.io/packagist/l/oliverthiele/ot-markdown.svg)](LICENSE)
+[![Changelog](https://img.shields.io/badge/Changelog-CHANGELOG.md-blue.svg)](CHANGELOG.md)
 
-`oliverthiele/ot-markdown` adds a modern and accessible **Markdown content element** and a **Fluid ViewHelper** to TYPO3
-v13+.
-It supports both inline Markdown (entered directly in the backend) and Markdown files from the Fileadmin.
-The extension uses [league/commonmark](https://commonmark.thephpleague.com/) for Markdown parsing and optionally
-supports syntax highlighting via [Prism.js](https://prismjs.com/).
-
----
-
-## 🚀 Features
+## Features
 
 - TYPO3 v13+ compatible (Site Set ready)
-- Inline or file-based Markdown rendering
-- Optional syntax highlighting with Prism.js (toggle via Site Set or Constant Editor)
-- Support for frontmatter metadata (`title`, `author`, …)
+- Inline or file-based Markdown rendering (`.md`, `.markdown`, `.txt`)
+- Optional syntax highlighting via Prism.js (CDN toggle)
+- Frontmatter metadata support (`title`, `author`, …)
 - Accessible output using semantic `<section>` and `<figure>` elements
-- Reusable `MarkdownViewHelper` for custom integrations
-- Fully configurable via TypoScript and Site Set Settings
+- Reusable `MarkdownViewHelper` for custom Fluid templates
+- Configurable via Site Set settings and TypoScript
 
----
+## Requirements
 
-## 🧱 Installation
+| Requirement | Version  |
+|-------------|----------|
+| TYPO3       | ^13.4    |
+| PHP         | ^8.2     |
+| league/commonmark | ^2.7 |
 
-Install via Composer:
+## Installation
 
 ```bash
 composer require oliverthiele/ot-markdown
 ```
 
-After installation, activate the **Site Set “ot_markdown”** in your TYPO3 backend.
+After installation, activate the **Site Set "OtMarkdown"** for your site in the TYPO3 backend.
 
----
+## Configuration
 
-## 🖋️ Usage
+### Site Set Settings
 
-### As a Content Element
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| `OtMarkdown.useCdnForPrism` | bool | `true` | Load Prism.js from CDN |
 
-Choose **“Markdown”** as content type (`CType = ot_markdown`).
-You can either:
-- enter Markdown directly into the text field, or
-- select a `.md`, `.markdown` or `.txt` file from Fileadmin.
+### TypoScript
 
-The content element automatically renders semantic HTML.
-
-### As a ViewHelper
-
-You can also use the ViewHelper directly in your Fluid templates:
-
-```html
-<ot:markdown text="{data.bodytext}"/>
-
-<ot:markdown file="{file}" as="output">
-    <f:format.raw>{output.html}</f:format.raw>
-</ot:markdown>
-
-<ot:markdown file="/fileadmin/…/Example.md" as="output">
-    <f:format.raw>{output.html}</f:format.raw>
-</ot:markdown>
-```
-
-The variable `{output.frontmatter}` provides access to YAML metadata (frontmatter) from Markdown files.
-
----
-
-## ⚙️ Configuration
-
-### Site Set Setting
-
-You can toggle CDN loading for Prism syntax highlighting:
-
-```yaml
-settings:
-    OtMarkdown.useCdnForPrism:
-        type: bool
-        default: true
-```
-
-The corresponding TypoScript mapping is already included:
-
-```typoscript
-settings {
-  otMarkdown {
-    useCdnForPrism = {$settings.OtMarkdown.useCdnForPrism}
-  }
-}
-```
-
-### TypoScript Configuration
-
-Default TypoScript paths:
-
-```typoscript
-tt_content.ot_markdown =< lib.contentElement
-tt_content.ot_markdown {
-  templateName = Markdown
-  dataProcessing {
-    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-    10.references.fieldName = assets
-    10.as = markdownFiles
-  }
-}
-```
-
----
-
-### Classic TypoScript Integration (without Site Set)
-If you do not use the Site Set integration, you can import the TypoScript files manually in your sitepackage:
+The TypoScript is auto-included via the Site Set. For manual integration without Site Set:
 
 ```typoscript
 @import 'EXT:ot_markdown/Configuration/TypoScript/constants.typoscript'
 @import 'EXT:ot_markdown/Configuration/TypoScript/setup.typoscript'
 ```
 
-This makes the Markdown content element and ViewHelper available without activating the Site Set in the backend.
+Default content element configuration:
 
-After including these files, you can also manage options such as **“Use CDN for Prism syntax highlighter”** via the Constant Editor under the category **OtMarkdown**.
+```typoscript
+tt_content.ot_markdown =< lib.contentElement
+tt_content.ot_markdown {
+    templateName = Markdown
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10.references.fieldName = assets
+        10.as = markdownFiles
+    }
+}
+```
 
----
+## Usage
 
-## 🧩 Accessibility & Semantics
+### Content Element
 
-Each Markdown block is wrapped in a `<section>` element for accessible structure.
-Markdown files are rendered inside `<figure>` tags with optional `<figcaption>` generated from frontmatter (`title`,
-`author`).
+Select **"Markdown"** as content type (`CType = ot_markdown`) in the TYPO3 backend. Choose between:
 
-This ensures proper structure even when multiple Markdown elements are used on one page.
+- **Inline** — enter Markdown directly in the text field
+- **File** — select a `.md`, `.markdown`, or `.txt` file from Fileadmin
 
----
+### ViewHelper
 
-## 💡 Developer Notes
+```html
+{namespace ot=OliverThiele\OtMarkdown\ViewHelpers}
 
-The parsing logic is encapsulated in a `MarkdownService` class and reused in the `MarkdownViewHelper`.
-This allows Markdown rendering in controllers, commands, or custom integrations.
+<ot:markdown text="{data.bodytext}"/>
 
-Example usage in PHP:
+<ot:markdown file="{file}" as="output">
+    <f:format.raw>{output.html}</f:format.raw>
+</ot:markdown>
+```
+
+Access frontmatter metadata via `{output.frontmatter.title}`, `{output.frontmatter.author}`, etc.
+
+### PHP API
 
 ```php
+use OliverThiele\OtMarkdown\Service\MarkdownService;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 $service = GeneralUtility::makeInstance(MarkdownService::class);
 $html = $service->render('# Hello World');
 ```
 
----
+## License
 
-## 🧩 License
-
-GPL-2.0-or-later
-© 2025 Oliver Thiele
-
----
-
-## 📦 Packagist / TER Metadata
-
-**Name:** `oliverthiele/ot-markdown`
-**Type:** `typo3-cms-extension`
-**Extension Key:** `ot_markdown`
+GPL-2.0-or-later — © 2025 Oliver Thiele
