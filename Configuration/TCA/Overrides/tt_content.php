@@ -80,9 +80,6 @@ call_user_func(static function () {
                         'createNewRelationLinkTitle' =>
                             'LLL:EXT:ot_markdown/Resources/Private/Language/locallang_db.xlf:tt_content.assets.addFile',
                     ],
-                    'behaviour' => [
-                        'allowLanguageSynchronization' => true,
-                    ],
                 ],
                 'displayCond' => 'FIELD:tx_otmarkdown_mode:=:file',
             ],
