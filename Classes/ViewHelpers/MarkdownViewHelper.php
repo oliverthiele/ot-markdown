@@ -66,16 +66,16 @@ final class MarkdownViewHelper extends AbstractViewHelper
 
         // If "as" is specified, provide variable in template
         if ($as !== '') {
-            $variableProvider = $this->renderingContext->getVariableProvider();
-            $variableProvider->add($as, [
-                'html' => $html,
-                'frontmatter' => $frontmatter,
-            ]);
-
-            $content = $this->renderChildren();
-
-            $variableProvider->remove($as);
-            return (string)$content;
+            $variableProvider = $this->renderingContext?->getVariableProvider();
+            if ($variableProvider !== null) {
+                $variableProvider->add($as, [
+                    'html' => $html,
+                    'frontmatter' => $frontmatter,
+                ]);
+                $content = $this->renderChildren();
+                $variableProvider->remove($as);
+                return (string)$content;
+            }
         }
 
         // Default behaviour: return HTML only

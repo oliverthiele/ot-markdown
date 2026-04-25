@@ -30,7 +30,6 @@ use League\CommonMark\MarkdownConverter;
 use Symfony\Component\Yaml\Yaml;
 use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class MarkdownService
 {
@@ -39,7 +38,7 @@ final class MarkdownService
     /** @var array<string, mixed> */
     private array $frontmatter = [];
 
-    public function __construct()
+    public function __construct(private readonly ResourceFactory $resourceFactory)
     {
         $this->frontmatter = [];
 
@@ -118,7 +117,7 @@ final class MarkdownService
         }
 
         // So now $file is guaranteed to be string
-        $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
+        $resourceFactory = $this->resourceFactory;
         try {
             $falFile = is_numeric($file)
                 ? $resourceFactory->getFileObject((int)$file)
