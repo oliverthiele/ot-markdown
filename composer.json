@@ -1,7 +1,7 @@
 {
 	"name": "oliverthiele/ot-markdown",
 	"type": "typo3-cms-extension",
-	"description": "Content Element and ViewHelper for Markdown with optional syntax highlighting.",
+	"description": "CE Markdown - Content Element and ViewHelper for Markdown with optional syntax highlighting.",
 	"license": [
 		"GPL-2.0-or-later"
 	],
@@ -14,8 +14,8 @@
 		}
 	],
 	"require": {
-		"php": "^8.2",
-		"typo3/cms-core": "^13.4",
+		"php": ">=8.3",
+		"typo3/cms-core": "^13.4||^14.3",
 		"league/commonmark": "^2.7.1"
 	},
 	"require-dev": {

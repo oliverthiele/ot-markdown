@@ -14,12 +14,9 @@ return static function (ContainerConfigurator $configurator): void {
         ->autoconfigure(true)
         ->private();
 
-    // Alle Klassen in Classes/ automatisch laden
     $services->load('OliverThiele\\OtMarkdown\\', '../Classes/*');
 
-    // Falls du gezielt einen Service öffentlich machen willst:
     $services->set(MarkdownService::class)->public();
 
-    // ViewHelper kann privat bleiben, wird von Fluid automatisch aufgelöst
     $services->set(MarkdownViewHelper::class);
 };

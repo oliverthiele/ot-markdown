@@ -1,6 +1,8 @@
 # ot_markdown — Markdown Content Element for TYPO3
 
-Adds a Markdown content element and a Fluid ViewHelper to TYPO3 v13+. Supports inline Markdown and `.md` files from Fileadmin, rendered via [league/commonmark](https://commonmark.thephpleague.com/) with optional Prism.js syntax highlighting.
+Adds a Markdown content element and a Fluid ViewHelper to TYPO3 v13 and v14. Supports inline Markdown and `.md` files
+from Fileadmin, rendered via [league/commonmark](https://commonmark.thephpleague.com/) with optional Prism.js syntax
+highlighting.
 
 [![TYPO3](https://img.shields.io/badge/TYPO3-13.4-orange.svg)](https://typo3.org/)
 [![Packagist Version](https://img.shields.io/packagist/v/oliverthiele/ot-markdown.svg)](https://packagist.org/packages/oliverthiele/ot-markdown)
@@ -20,11 +22,11 @@ Adds a Markdown content element and a Fluid ViewHelper to TYPO3 v13+. Supports i
 
 ## Requirements
 
-| Requirement | Version  |
-|-------------|----------|
-| TYPO3       | ^13.4    |
-| PHP         | ^8.2     |
-| league/commonmark | ^2.7 |
+| Requirement       | Version        |
+|-------------------|----------------|
+| TYPO3             | ^13.4 \| ^14.3 |
+| PHP               | >=8.3          |
+| league/commonmark | ^2.7           |
 
 ## Installation
 
@@ -38,9 +40,9 @@ After installation, activate the **Site Set "OtMarkdown"** for your site in the 
 
 ### Site Set Settings
 
-| Key | Type | Default | Description |
-|-----|------|---------|-------------|
-| `OtMarkdown.useCdnForPrism` | bool | `true` | Load Prism.js from CDN |
+| Key                         | Type | Default | Description            |
+|-----------------------------|------|---------|------------------------|
+| `OtMarkdown.useCdnForPrism` | bool | `true`  | Load Prism.js from CDN |
 
 ### TypoScript
 
