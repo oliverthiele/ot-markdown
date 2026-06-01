@@ -77,8 +77,8 @@ call_user_func(static function () {
                     'maxitems' => 1,
                     'allowed' => 'md,markdown,txt',
                     'appearance' => [
-                        'createNewRelationLinkTitle' =>
-                            'LLL:EXT:ot_markdown/Resources/Private/Language/locallang_db.xlf:tt_content.assets.addFile',
+                        'createNewRelationLinkTitle'
+                            => 'LLL:EXT:ot_markdown/Resources/Private/Language/locallang_db.xlf:tt_content.assets.addFile',
                     ],
                 ],
                 'displayCond' => 'FIELD:tx_otmarkdown_mode:=:file',
