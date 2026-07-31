@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-	<file source-language="en" datatype="plaintext"
-		  original="EXT:ot_markdown/Configuration/Sets/OtMarkdown/labels.xlf"
-		  date="2025-10-16T11:06:00Z" product-name="ot-markdown">
-		<header/>
-		<body>
-			<trans-unit id="label" resname="label">
-				<source>Content Element: Markdown</source>
-			</trans-unit>
-			<trans-unit id="categories.otMarkdown" resname="categories.otMarkdown">
-				<source>CE Markdown</source>
-			</trans-unit>
-			<trans-unit id="settings.otMarkdown.useCdnForPrism" resname="settings.otMarkdown.useCdnForPrism">
-				<source>Use CDN for the Prism syntax highlighter?</source>
-			</trans-unit>
-			<trans-unit id="settings.otMarkdown.description.useCdnForPrism" resname="settings.otMarkdown.description.useCdnForPrism">
-				<source>If a CDN is used, there may be problems with the GDPR. It is better to deliver locally.</source>
-			</trans-unit>
-		</body>
-	</file>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
+  <file id="ot-markdown-labels"
+        original="EXT:ot_markdown/Configuration/Sets/OtMarkdown/labels.xlf">
+    <unit id="label">
+      <segment>
+        <source>Content Element: Markdown</source>
+      </segment>
+    </unit>
+    <unit id="categories.otMarkdown">
+      <segment>
+        <source>CE Markdown</source>
+      </segment>
+    </unit>
+    <unit id="settings.otMarkdown.useCdnForPrism">
+      <segment>
+        <source>Use CDN for the Prism syntax highlighter?</source>
+      </segment>
+    </unit>
+    <unit id="settings.otMarkdown.description.useCdnForPrism">
+      <segment>
+        <source>If a CDN is used, there may be problems with the GDPR. It is better to deliver locally.</source>
+      </segment>
+    </unit>
+  </file>
 </xliff>
