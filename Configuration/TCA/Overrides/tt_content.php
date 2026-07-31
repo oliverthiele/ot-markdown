@@ -11,17 +11,17 @@ call_user_func(static function () {
     $temporaryColumns = [
         'tx_otmarkdown_mode' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:' . $key . '/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otmarkdown_mode',
+            'label' => $key . '.db:tt_content.tx_otmarkdown_mode',
             'config' => [
                 'type' => 'radio',
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        'label' => 'LLL:EXT:ot_markdown/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otmarkdown_mode.inline',
+                        'label' => 'ot_markdown.db:tt_content.tx_otmarkdown_mode.inline',
                         'value' => 'inline',
                     ],
                     [
-                        'label' => 'LLL:EXT:ot_markdown/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otmarkdown_mode.file',
+                        'label' => 'ot_markdown.db:tt_content.tx_otmarkdown_mode.file',
                         'value' => 'file',
                     ],
                 ],
@@ -38,8 +38,8 @@ call_user_func(static function () {
         'tt_content',
         'CType',
         [
-            'label' => 'LLL:EXT:' . $key . '/Resources/Private/Language/locallang_db.xlf:tt_content.CType.ot_markdown',
-            'description' => 'LLL:EXT:' . $key . '/Resources/Private/Language/locallang_db.xlf:tt_content.CType.ot_markdown.description',
+            'label' => $key . '.db:tt_content.CType.ot_markdown',
+            'description' => $key . '.db:tt_content.CType.ot_markdown.description',
             'value' => $key,
             'icon' => 'ot-markdown',
             'group' => 'extras',
@@ -55,13 +55,13 @@ call_user_func(static function () {
             tx_otmarkdown_mode,
             bodytext,
             assets,
-            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+            --div--;core.form.tabs:access,
             --palette--;;hidden,
             --palette--;;access
         ',
         'columnsOverrides' => [
             'bodytext' => [
-                'label' => 'LLL:EXT:ot_markdown/Resources/Private/Language/locallang_db.xlf:tt_content.bodytext',
+                'label' => 'ot_markdown.db:tt_content.bodytext',
                 'displayCond' => 'FIELD:tx_otmarkdown_mode:=:inline',
                 'config' => [
                     'renderType' => 'codeEditor',
@@ -71,14 +71,14 @@ call_user_func(static function () {
                 ],
             ],
             'assets' => [
-                'label' => 'LLL:EXT:ot_markdown/Resources/Private/Language/locallang_db.xlf:tt_content.assets',
+                'label' => 'ot_markdown.db:tt_content.assets',
                 'config' => [
                     'type' => 'file',
                     'maxitems' => 1,
                     'allowed' => 'md,markdown,txt',
                     'appearance' => [
-                        'createNewRelationLinkTitle' =>
-                            'LLL:EXT:ot_markdown/Resources/Private/Language/locallang_db.xlf:tt_content.assets.addFile',
+                        'createNewRelationLinkTitle'
+                            => 'ot_markdown.db:tt_content.assets.addFile',
                     ],
                 ],
                 'displayCond' => 'FIELD:tx_otmarkdown_mode:=:file',
