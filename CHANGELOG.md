@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] — 2026-07-31
+
+### Changed
+
+- **Breaking:** Drop TYPO3 v13 support, require TYPO3 `^14.3`
+- **Breaking:** Raise the PHP minimum to `>=8.4`. The `ext_emconf.php`
+  constraint also had an upper bound of `8.4.99`, which is now `8.99.99`
+- Migrate the language files from XLIFF 1.2 to XLIFF 2.0. Unit identifiers and
+  all translations are unchanged, so no label reference needs adjusting
+- Reference labels via translation domain mapping instead of full file paths:
+  `ot_markdown.db:` replaces
+  `LLL:EXT:ot_markdown/Resources/Private/Language/locallang_db.xlf:`, and the
+  access tab now uses `core.form.tabs:`
+
 ## [2.0.0] — 2026-04-25
 
 ### Added
