@@ -4,7 +4,7 @@ Adds a Markdown content element and a Fluid ViewHelper to TYPO3 v13 and v14. Sup
 from Fileadmin, rendered via [league/commonmark](https://commonmark.thephpleague.com/) with optional Prism.js syntax
 highlighting.
 
-[![TYPO3](https://img.shields.io/badge/TYPO3-13.4-orange.svg)](https://typo3.org/)
+[![TYPO3](https://img.shields.io/badge/TYPO3-14.3-orange.svg)](https://typo3.org/)
 [![Packagist Version](https://img.shields.io/packagist/v/oliverthiele/ot-markdown.svg)](https://packagist.org/packages/oliverthiele/ot-markdown)
 [![PHP](https://img.shields.io/packagist/dependency-v/oliverthiele/ot-markdown/php.svg)](https://php.net/)
 [![License](https://img.shields.io/packagist/l/oliverthiele/ot-markdown.svg)](LICENSE)
@@ -24,8 +24,8 @@ highlighting.
 
 | Requirement       | Version        |
 |-------------------|----------------|
-| TYPO3             | ^13.4 \| ^14.3 |
-| PHP               | >=8.3          |
+| TYPO3             | ^14.3          |
+| PHP               | >=8.4          |
 | league/commonmark | ^2.7           |
 
 ## Installation

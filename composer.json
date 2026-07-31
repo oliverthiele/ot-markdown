@@ -14,8 +14,8 @@
 		}
 	],
 	"require": {
-		"php": ">=8.3",
-		"typo3/cms-core": "^13.4||^14.3",
+		"php": ">=8.4",
+		"typo3/cms-core": "^14.3",
 		"league/commonmark": "^2.7.1"
 	},
 	"require-dev": {
